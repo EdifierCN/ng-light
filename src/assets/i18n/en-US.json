@@ -1,0 +1,42 @@
+{
+  "Nav": {
+    "Login": "Login",
+    "Register": "Register"
+  },
+  "Header": {
+    "switch language" : "Switch language"
+  },
+  "Passport":{
+    "welcome": "Welcome to"
+  },
+  "Login":{
+    "account login": "account login",
+    "phone login": "mobile login",
+    "auto login": "auto login",
+    "forget password": "forget password?",
+    "register account": "register account",
+    "third login": "third login"
+  },
+  "Register":{
+    "use existed account login": "use existed account login"
+  },
+  "Tip":{
+    "input": "please input {{ value }}!",
+    "select":"please select {{ value }}!",
+    "valid input": "please input valid {{ value }}!"
+  },
+  "Form":{
+    "nickname": "nickname",
+    "password": "password",
+    "confirm password": "confirm password",
+    "area": "areaCode",
+    "areaCode": "areaCode",
+    "phone": "phone",
+    "captcha": "captcha",
+    "submit": "Submit",
+    "sending": "sending...",
+    "resend": "resend(${count})",
+    "retry": "retry",
+    "get captcha": "get captcha"
+  }
+}

@@ -1,0 +1,36 @@
+.mixin-scrollbar(@w: @zn-scrollbar-width, @sc: @zn-scrollbar-color, @tc: @zn-scrollbar-thumb-color, @r: @zn-scrollbar-radius){
+  ::-webkit-scrollbar{
+    background-color:@sc;
+    width:@w;
+    border-radius:@r;
+  }
+  ::-webkit-scrollbar-button{
+    display:none;
+  }
+  ::-webkit-scrollbar-track{
+    display:none;
+    border-radius:@r;
+  }
+  ::-webkit-scrollbar-track-piece{
+    border-radius:@r;
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color:@tc;
+    border-radius:@r;
+  }
+  ::-webkit-resizer,::-webkit-scrollbar-corner{
+    border-radius:@r;
+  }
+}
+
+.mixin-abs-center(@l: 50%, @t: 50%, @s:translate(-50%,-50%)){
+  position: absolute;;
+  left:@l;
+  top:@t;
+}
+.mixin-abs-center(@l: 50%, @t: 50%, @s:translate(-50%,-50%)) when(@l = 50%){
+  transform+_:translateX(-50%);
+}
+.mixin-abs-center(@l: 50%, @t: 50%, @s:translate(-50%,-50%)) when(@t = 50%){
+  transform+_:translateY(-50%);
+}

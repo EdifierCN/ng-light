@@ -1,0 +1,42 @@
+{
+  "Nav":{
+    "Login": "登录",
+    "Register": "注册"
+  },
+  "Header":{
+    "switch language" : "切换语言"
+  },
+  "Passport":{
+    "welcome": "欢迎来到"
+  },
+  "Login":{
+    "account login": "账户密码登录",
+    "phone login": "手机号登录",
+    "auto login": "自动登录",
+    "forget password": "忘记密码？",
+    "register account": "注册账户",
+    "third login": "其他登录方式"
+  },
+  "Register":{
+    "use existed account login": "使用已有账户登录"
+  },
+  "Tip":{
+    "input": "请输入{{ value }}！",
+    "select":"请选择 {{ value }}！",
+    "valid input": "请输入有效{{ value }}!"
+  },
+  "Form":{
+    "nickname": "用户名",
+    "password": "密码",
+    "confirm password": "确认密码",
+    "area": "地区",
+    "areaCode": "区号",
+    "phone": "手机号",
+    "captcha": "验证码",
+    "submit": "提交",
+    "sending": "发送中...",
+    "resend": "重新发送(${count})",
+    "retry": "重新获取",
+    "get captcha": "获取验证码"
+  }
+}

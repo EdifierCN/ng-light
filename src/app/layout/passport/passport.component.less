@@ -1,0 +1,69 @@
+@import "../../../styles/theme.less";
+
+.zn-layout{
+  width: 100%;
+  min-height: 100%;
+  overflow: auto;
+  background: @zn-passport-background;
+}
+
+.passport-container{
+  width: @zn-passport-width;
+  height: @zn-passport-height;
+}
+.passport-banner{
+  height: 100%;
+}
+.passport-mark, .passport-label{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 100px;
+  margin-top: -50px;
+}
+.passport-mark{
+  background-color: @zn-passport-mark-bg;
+  opacity: @zn-passport-mark-opacity;
+}
+.passport-label{
+  color: @zn-passport-label-color;
+  text-align: center;
+  line-height: 100px;
+}
+.passport-content{
+  height: 100%;
+  border: 1px #cccccc solid;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #d2d2d2;
+  background-color: @zn-passport-bg;
+}
+// nzXs:<576px; nzSm:>=576; nzMd: >=768; nzLg>=992; nzXl: >=1200; nzXXl: >=1600
+@media (max-width: 768px) {
+  .passport-wrap{
+    width: 362px;
+  }
+  .passport-content{
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+::ng-deep{
+  .passport-title{
+    padding: @padding-sm @padding-sm 0;
+  }
+  .passport-form{
+    padding: 0 @padding-sm @padding-sm;
+  }
+  .passport-link{
+    float: right;
+    line-height: @btn-height-lg;
+  }
+  .passport-explain{
+    line-height: @input-height-lg;
+    color: @error-color;
+  }
+}
+

@@ -1,0 +1,106 @@
+<h3 class="passport-title">{{ 'Nav.Login' | translate }}</h3>
+<form class="passport-form" nz-form [formGroup]="form" (submit)="handleSubmit()" role="form">
+  <nz-tabset [(nzSelectedIndex)]="type" (nzSelectChange)="handleChange()">
+    <nz-tab nzTitle="{{ 'Login.account login' | translate }}">
+
+      <nz-alert *ngIf="error[0]" [nzType]="'error'" [nzMessage]="error[0]" [nzShowIcon]="true" class="zn-mb-md"></nz-alert>
+
+      <nz-form-item>
+        <nz-form-control nzHasFeedback>
+          <nz-input-group nzPrefixIcon="anticon anticon-user" nzSize="large">
+            <input type="text" nz-input zn-focus zn-required zn-ban-space (znFocus)="clearError()" formControlName="nickname" placeholder="{{ 'Tip.input' | translate:{value: 'Form.nickname'|translate} }}"/>
+          </nz-input-group>
+
+          <nz-form-explain *ngIf="nickname.dirty && nickname.errors && !$any(nickname).focused" translate>
+            {{ 'Tip.input' | translate:{value: 'Form.nickname'|translate} }}
+          </nz-form-explain>
+
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzHasFeedback>
+          <nz-input-group nzPrefixIcon="anticon anticon-lock" nzSize="large">
+            <input type="password" nz-input zn-focus zn-required zn-ban-space (znFocus)="clearError()" formControlName="password" placeholder="{{ 'Tip.input' | translate:{value: 'Form.password'|translate} }}">
+          </nz-input-group>
+
+          <nz-form-explain *ngIf="password.dirty && password.errors && !$any(password).focused">
+            {{ 'Tip.input' | translate:{value: 'Form.password'|translate} }}
+          </nz-form-explain>
+
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+    <nz-tab nzTitle="{{ 'Login.phone login' | translate }}">
+
+      <nz-alert *ngIf="error[1]" [nzType]="'error'" [nzMessage]="error[1]" [nzShowIcon]="true" class="zn-mb-md"></nz-alert>
+
+      <nz-form-item nz-row [nzGutter]="8">
+        <nz-form-control [nzSpan]="8">
+
+          <nz-select formControlName="mobilePrefix" nzSize="large" nzPlaceHolder="{{ 'Form.area' | translate }}" [style.font-size]="'15px'" [nzDropdownStyle]="{fontSize: '13px'}" [nzDropdownMatchSelectWidth]="false">
+            <nz-option-group *ngFor="let v0 of prefix$ | async" [nzLabel]="v0.label">
+              <nz-option *ngFor="let v1 of v0.value" [nzCustomContent]="true" [nzLabel]="'+'+v1.value" [nzValue]="v1.value">{{ v1.label }}<span [style.float]="'right'">+{{ v1.value }}</span></nz-option>
+            </nz-option-group>
+          </nz-select>
+
+          <nz-form-explain *ngIf="mobilePrefix.dirty && mobilePrefix.errors">
+            {{ 'Tip.select' | translate:{value: 'Form.areaCode'|translate} }}
+          </nz-form-explain>
+
+        </nz-form-control>
+
+        <nz-form-control [nzSpan]="16" nzHasFeedback>
+          <nz-input-group nzPrefixIcon="anticon anticon-mobile" nzSize="large">
+            <input type="text" nz-input zn-required zn-focus zn-number-only placeholder="{{ 'Tip.input' | translate:{value: 'Form.phone'|translate} }}" (znFocus)="clearError()" formControlName="mobile">
+          </nz-input-group>
+
+          <nz-form-explain *ngIf="mobile.dirty && mobile.errors && !$any(mobile).focused">
+            <ng-container *ngIf="mobile.hasError('required')">
+              {{ 'Tip.input' | translate:{value: 'Form.phone'|translate} }}
+            </ng-container>
+            <ng-container *ngIf="mobile.hasError('pattern')">
+              {{ 'Tip.valid input' | translate:{value: 'Form.phone'|translate} }}
+            </ng-container>
+          </nz-form-explain>
+
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item nz-row [nzGutter]="8">
+        <nz-form-control nzHasFeedback [nzSpan]="16">
+          <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-mail">
+            <input nz-input zn-required zn-focus zn-number-only (znFocus)="clearError()" formControlName="captcha" maxlength="4" placeholder="{{ 'Form.captcha' | translate }}">
+          </nz-input-group>
+
+          <nz-form-explain *ngIf="captcha.dirty && captcha.errors && !$any(captcha).focused">
+            {{ 'Tip.input' | translate:{value: 'Form.captcha'|translate} }}
+          </nz-form-explain>
+
+        </nz-form-control>
+        <nz-col [nzSpan]="8">
+          <zn-captcha [znBeforeTryFn]="getCaptcha.bind(this)" znInitialTpl="{{ 'Form.get captcha' | translate }}" znLoadingTpl="{{ 'Form.sending' | translate }}" znTryingTpl="{{ 'Form.resend' | translate }}" znRetryTpl="{{ 'Form.retry' | translate }}"></zn-captcha>
+        </nz-col>
+      </nz-form-item>
+    </nz-tab>
+  </nz-tabset>
+
+  <nz-form-item>
+    <nz-col [nzSpan]="12">
+      <label nz-checkbox formControlName="remember">{{ 'Login.auto login' | translate }}</label>
+    </nz-col>
+    <nz-col [nzSpan]="12">
+      <a class="passport-link">{{ 'Login.forget password' | translate }}</a>
+    </nz-col>
+  </nz-form-item>
+
+  <nz-form-item>
+    <button nz-button type="submit" nzType="primary" nzSize="large" [nzLoading]="loading" class="zn-btn-full">{{ 'Form.submit' | translate }}</button>
+  </nz-form-item>
+</form>
+<div class="login-other">
+  {{ 'Login.third login' | translate }}
+  <i title="Github" (click)="open('github')" class="anticon anticon-github icon"></i>
+  <a class="passport-link" routerLink="/passport/register">{{ 'Login.register account' | translate }}</a>
+</div>

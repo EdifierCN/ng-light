@@ -1,0 +1,17 @@
+{
+  "/api": {
+    "target": "http://rap2api.taobao.org",
+    "changeOrigin": true,
+    "secure": "false",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/github": {
+    "target": "https://github.com",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/github": ""
+    }
+  }
+}

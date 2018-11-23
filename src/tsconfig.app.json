@@ -1,0 +1,93 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "module": "es2015",
+    "types": ["node"],
+    "paths": {
+      "@env": [
+        "environments"
+      ],
+      "@env/*": [
+        "environments/*"
+      ],
+      "@shared": [
+        "app/shared"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@utils": [
+        "app/utils"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ],
+      "@core": [
+        "app/core"
+      ],
+      "@core/*": [
+        "app/core/*"
+      ],
+      "@global": [
+        "app/global"
+      ],
+      "@global/*": [
+        "app/global/*"
+      ],
+      "@routes": [
+        "app/routes"
+      ],
+      "@routes/*": [
+        "app/routes/*"
+      ],
+      "@layout": [
+        "app/layout"
+      ],
+      "@layout/*": [
+        "app/layout/*"
+      ],
+      "@assets": [
+        "assets"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@styles": [
+        "styles"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@services": [
+        "app/services"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@locales": [
+        "locales"
+      ],
+      "@locales/*": [
+        "locales/*"
+      ],
+      "@store": [
+        "app/store"
+      ],
+      "@store/*": [
+        "app/store/*"
+      ],
+      "@prefix": [
+        "prefix"
+      ],
+      "@prefix/*": [
+        "prefix/*"
+      ]
+    }
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,44 @@
+<section>
+  <nz-divider nzText="Demo_1" nzOrientation="left"></nz-divider>
+  <div style="padding: 20px 40px;">
+
+    <div style="margin-bottom: 20px">
+      <button nz-button (click)="handleAddArticles()" style="margin-right: 10px">Add</button>
+      <button nz-button (click)="handleUpdateArticles()" style="margin-right: 10px">Update</button>
+      <button nz-button (click)="handleRemoveArticles()" style="margin-right: 10px">remove</button>
+      <button nz-button (click)="handleClearArticles()" style="margin-right: 10px">Clear</button>
+    </div>
+    <div style="margin-bottom: 20px">
+      <button nz-button (click)="resetFilters()" style="margin-right: 10px">Clear filters</button>
+      <button nz-button (click)="resetSortAndFilters()" style="margin-right: 10px">Clear filters and sorters</button>
+    </div>
+    <nz-table
+      #articleTable [nzData]="displayData"
+      (nzCurrentPageDataChange)="currentPageDataChange($event)"
+      (nzPageIndexChange)="refreshStatus()"
+      (nzPageSizeChange)="refreshStatus()">
+      <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+        <th nzShowSort [(nzSort)]="sortMap.id" (nzSortChange)="sort('id',$event)" >Id</th>
+        <th nzShowSort nzShowFilter [(nzSort)]="sortMap.category" (nzSortChange)="sort('category',$event)" [nzFilters]="filterCategoryList" (nzFilterChange)="search($event)">Category</th>
+        <th>Title</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of articleTable.data">
+        <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus()"></td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.category }}</td>
+        <td>{{ data.title }}</td>
+        <td>
+          <a>Edit</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+[
+  {
+    "title": "仪表板",
+    "titleI18n": {
+      "zh-CN": "仪表板",
+      "en-US": "dashboard"
+    },
+    "icon": "dashboard",
+    "children": [
+      {
+        "title": "i18n",
+        "titleI18n": {
+          "zh-CN": "i18n",
+          "en-US": "i18n"
+        },
+        "link": "/dashboard/i18n",
+        "reuse": true
+      },
+      {
+        "title": "dynamic",
+        "titleI18n": {
+          "zh-CN": "dynamic",
+          "en-US": "dynamic"
+        },
+        "link": "/dashboard/dynamic",
+        "reuse": true
+      },
+      {
+        "title": "animation",
+        "titleI18n": {
+          "zh-CN": "animation",
+          "en-US": "animation"
+        },
+        "link": "/dashboard/animation",
+        "reuse": true
+      },
+      {
+        "title": "ngrx",
+        "titleI18n": {
+          "zh-CN": "ngrx",
+          "en-US": "ngrx"
+        },
+        "link": "/dashboard/ngrx",
+        "reuse": true
+      },
+      {
+        "title": "rxjs",
+        "titleI18n": {
+          "zh-CN": "rxjs",
+          "en-US": "rxjs"
+        },
+        "link": "/dashboard/rxjs",
+        "reuse": true
+      }
+    ]
+  },
+  {
+    "title": "插件",
+    "titleI18n": {
+      "zh-CN": "插件",
+      "en-US": "plugins"
+    },
+    "icon": "rocket",
+    "children": [
+      {
+        "title": "sortable",
+        "titleI18n": {
+          "zh-CN": "sortable",
+          "en-US": "sortable"
+        },
+        "link": "/plugins/sortable",
+        "reuse": true
+      }
+    ]
+  }
+]

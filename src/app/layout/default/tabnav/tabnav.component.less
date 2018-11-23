@@ -1,0 +1,24 @@
+@import "../../../../styles/theme.less";
+
+.zn-tabnav{
+  user-select: none;
+  .anticon-close{
+    .mixin-abs-center('', 50%);
+    right: -12px;
+    font-size: 12px;
+    display: none;
+  }
+  ::ng-deep{
+    .ant-tabs-tab{
+      &:hover{
+        .anticon-close{
+          display: inline-block;
+        }
+      }
+    }
+    .ant-tabs-bar{
+      margin-bottom: @zn-tabnav-margin;
+    }
+  }
+}
+

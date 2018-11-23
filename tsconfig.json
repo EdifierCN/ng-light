@@ -1,0 +1,101 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src/",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@env": [
+        "environments"
+      ],
+      "@env/*": [
+        "environments/*"
+      ],
+      "@shared": [
+        "app/shared"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@utils": [
+        "app/utils"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ],
+      "@core": [
+        "app/core"
+      ],
+      "@core/*": [
+        "app/core/*"
+      ],
+      "@global": [
+        "app/global"
+      ],
+      "@global/*": [
+        "app/global/*"
+      ],
+      "@routes": [
+        "app/routes"
+      ],
+      "@routes/*": [
+        "app/routes/*"
+      ],
+      "@layout": [
+        "app/layout"
+      ],
+      "@layout/*": [
+        "app/layout/*"
+      ],
+      "@assets": [
+        "assets"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@styles": [
+        "styles"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@services": [
+        "app/services"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@locales": [
+        "locales"
+      ],
+      "@locales/*": [
+        "locales/*"
+      ],
+      "@store": [
+        "app/store"
+      ],
+      "@store/*": [
+        "app/store/*"
+      ],
+      "@prefix": [
+        "prefix"
+      ],
+      "@prefix/*": [
+        "prefix/*"
+      ]
+    }
+  }
+}

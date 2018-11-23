@@ -1,0 +1,55 @@
+<section>
+  <nz-divider nzText="Demo_1" nzOrientation="left"></nz-divider>
+  <div>
+    <div style="height: 100px; margin-bottom: 10px">
+      <p style="height: 100px;" [@OpenOrClose]="isOpen ? 'open' : 'close'"></p>
+    </div>
+    <button nz-button (click)="handleToggle()">{{ !isOpen ? 'open': 'close' }}</button>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_2" nzOrientation="left"></nz-divider>
+  <div>
+    <div style="height: 100px; width: 100%; overflow:hidden; margin-bottom: 10px;">
+      <p @FlyInOrOut *ngIf="isShown" style="background-color: red; height: 100px;"></p>
+    </div>
+    <button nz-button (click)="handleToggle()">{{ !isShown ? 'show': 'hide' }}</button>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_3" nzOrientation="left"></nz-divider>
+  <div>
+    <div style="height: 100px; margin-bottom: 10px" [@.disabled]="isDisabled">
+      <p style="height: 100px;" [@OpenOrClose]="isOpen ? 'open' : 'close'"></p>
+    </div>
+    <button nz-button (click)="handleEnable()" style="margin-right: 10px">{{ isDisabled ? 'enable': 'disable' }}</button>
+    <button nz-button (click)="handleToggle()">{{ !isOpen ? 'open': 'close' }}</button>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_4" nzOrientation="left"></nz-divider>
+  <div>
+    <div style="height: 100px; margin-bottom: 10px">
+      <p style="height: 100px;"
+         [@OpenOrClose]="isOpen ? 'open' : 'close'"
+         (@OpenOrClose.start)="handleAnimationEvent($event)"
+         (@OpenOrClose.done)="handleAnimationEvent($event)"
+      ></p>
+    </div>
+    <button nz-button (click)="handleToggle()">{{ !isOpen ? 'open': 'close' }}</button>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_5" nzOrientation="left"></nz-divider>
+  <div>
+    <div style="height: 100px; margin-bottom: 10px">
+      <ul class="list" [@filterAnimation]="index">
+        <li *ngFor="let v of list" style="background-color: red; height: 10px;"></li>
+      </ul>
+    </div>
+  </div>
+</section>

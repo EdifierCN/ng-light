@@ -1,0 +1,189 @@
+@import "../../../styles/theme.less";
+
+.zn-layout{
+  width: 100%;
+  min-height: 100%;
+  overflow: auto
+}
+
+.zn-layout-header{
+  position:fixed;
+  z-index: 60;
+  width:100%;
+  left: 0;
+  right: 0;
+}
+
+.zn-layout-sidebar{
+  position: fixed;
+  z-index: 55;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: @layout-header-height;
+  width: @zn-sidebar-width;
+  transition-duration: .2s;
+  transition-property: transform, width;
+  overflow: auto;
+  background: @zn-sidebar-bg;
+}
+
+.zn-layout-tabnav{
+  background: @zn-tabnav-bg;
+  position: fixed;
+  z-index: 50;
+  top: @layout-header-height;
+  right: 0;
+  left: @zn-sidebar-width;
+  transition: left .2s;
+  box-shadow: @zn-tabnav-shadow;
+}
+
+.zn-layout-content{
+  margin: @zn-layout-content-margin;
+  transition: margin-left .2s;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.zn-layout-content__inner{
+  flex: 1;
+  background: @zn-layout-content-bg;
+  padding: 8px 10px;
+  overflow: hidden;
+}
+
+.zn-layout-backdrop{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 51;
+  display: none;
+}
+
+.zn-breadcrumb{
+  display: none;
+  margin-bottom: 5px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .zn-layout-header{
+    ::ng-deep{
+      .zn-header__lt{
+        width: 200px;
+      }
+      .zn-header-logo{
+        font-size: 40px;
+      }
+    }
+  }
+  .zn-layout-tabnav{
+    left: @zn-sidebar-width;
+  }
+  .zn-layout-content{
+    margin-left: @zn-sidebar-width;
+  }
+}
+@media screen and (max-width: 768px){
+  .zn-layout-header{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    ::ng-deep{
+      .zn-header{
+        height: @zn-header-sm-height;
+        line-height: @zn-header-sm-height;
+      }
+      .zn-sidebar-trigger{
+        line-height: @zn-header-sm-height;
+      }
+      .zn-header__lt{
+        width: 76px;
+      }
+      .zn-header-logo{
+        font-size: 30px;
+      }
+    }
+  }
+  .zn-layout-sidebar{
+    margin-top: @zn-header-sm-height;
+  }
+  .zn-layout-tabnav{
+    left: @zn-layout-content-collapsed-left;
+    display: none;
+  }
+  .zn-breadcrumb{
+    display: block;
+  }
+  .zn-layout-content{
+    margin-left: @zn-layout-content-collapsed-left;
+    margin-top: @zn-header-sm-height;
+  }
+  .zn-layout-backdrop{
+    display: block;
+  }
+}
+
+:host-context(.zn-layout--collapsed){
+  @media screen and (min-width: 768px) {
+    .zn-layout-header{
+      ::ng-deep{
+        .zn-header__lt{
+          width: 76px;
+        }
+        .zn-header-logo{
+          font-size: 30px;
+        }
+      }
+    }
+    .zn-layout-sidebar{
+      width: @zn-sidebar-collapsed-width;
+    }
+    .zn-layout-tabnav{
+      left: @zn-sidebar-collapsed-width;
+    }
+    .zn-layout-content{
+      margin-left: @zn-sidebar-collapsed-width;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .zn-layout-sidebar{
+      transform: translate3d(-100%, 0, 0);
+    }
+    .zn-layout-tabnav{
+      left: @zn-layout-content-collapsed-left;
+    }
+    .zn-layout-content{
+      margin-left: @zn-layout-content-collapsed-left;
+    }
+  }
+}
+
+.zn-routing-progressbar{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  height: 3px;
+  width: 100%;
+  background-size: 50% 30px, 100% 30px, 100% 30px;
+  background-position: -50% center, right center, left center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  -webkit-animation: pulse 1.3s ease-out infinite;
+  animation: pulse 1.3s ease-out infinite;
+  background-color: pink;
+  background-image: -webkit-linear-gradient(0deg, rgba(226, 4, 22, 0) 10%, rgba(250, 6, 26, 0.8) 30%, #fb1f31 70%, rgba(250, 6, 26, 0.8) 80%, rgba(226, 4, 22, 0) 100%);
+  background-image: linear-gradient(0deg, rgba(226, 4, 22, 0) 10%, rgba(250, 6, 26, 0.8) 30%, #fb1f31 70%, rgba(250, 6, 26, 0.8) 80%, rgba(226, 4, 22, 0) 100%);
+}
+
+@keyframes pulse {
+  0% {
+    background-position: -100% center, right center, left center;
+  }
+  100% {
+    background-position: 200% center, right center, left center;
+  }
+}

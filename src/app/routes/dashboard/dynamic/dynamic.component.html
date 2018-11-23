@@ -1,0 +1,26 @@
+<section>
+  <nz-divider nzText="Demo_1" nzOrientation="left"></nz-divider>
+  <div style="height: 100px;">
+    <ng-template #container></ng-template>
+  </div>
+  <button nz-button (click)="createDemo_1('100万')" style="margin-right: 10px">按钮1</button>
+  <button nz-button (click)="createDemo_1('1000万')">按钮2</button>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_2" nzOrientation="left"></nz-divider>
+  <div style="height: 100px;">
+    <ng-template #tpl>
+      <div style="margin: 5px; background-color: #EEEEEE; color: red; padding: 5px;">
+        <p>内部消息：恭喜您中了100万大奖！</p>
+        <p>外部消息：{{ title }}</p>
+      </div>
+    </ng-template>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_3" nzOrientation="left"></nz-divider>
+  <div style="height: 100px;" #wrapper></div>
+  <button nz-button (click)="createDemo_3('100万')">按钮3</button>
+</section>

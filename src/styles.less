@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files（xs sm md  lg xl xxl）*/
+@import "../node_modules/ng-zorro-antd/src/style/v2-compatible-reset.less";
+@import 'styles/theme';
+
+/* scrollbar */
+html{
+  .mixin-scrollbar()
+}
+body{
+  .mixin-scrollbar(0)
+}
+
+/* global */
+.zn-no-select{
+  user-select: none;
+}
+
+/* color */
+.zn-color{
+  transition: color 0.3s;
+}
+.zn-color-default{
+  color: @text-color!important;
+  &:extend(.zn-color);
+}
+.zn-color-success{
+  color: @success-color!important;
+  &:extend(.zn-color);
+}
+.zn-color-warning{
+  color: @warning-color!important;
+  &:extend(.zn-color);
+}
+.zn-color-error{
+  color: @error-color!important;
+  &:extend(.zn-color);
+}
+.zn-color-danger{
+  color: @error-color!important;
+  &:extend(.zn-color);
+}
+
+/* width */
+.zn-w-sm{
+  width: 30%!important;
+}
+.zn-w-md{
+  width: 50%!important;
+}
+.zn-w-lg{
+  width: 80%!important;
+}
+.zn-w-xl{
+  width: 100%!important;
+}
+
+/*  position */
+.zn-abs-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* margin */
+.zn-mb-sm{
+  margin-bottom: 5px!important;
+}
+.zn-mb-md{
+  margin-bottom: 10px!important;
+}
+.zn-mb-lg{
+  margin-bottom: 15px!important;
+}
+
+/*=============== component ===============*/
+/* button */
+.zn-btn-full{
+  width: 100%;
+}

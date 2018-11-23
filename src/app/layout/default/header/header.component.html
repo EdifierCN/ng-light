@@ -1,0 +1,29 @@
+<nz-header nz-row class="zn-header">
+  <nz-col class="zn-header__lt">
+    <i class="zn-header-logo" nz-icon type="github" theme="outline"></i>
+  </nz-col>
+
+  <nz-col class="zn-header__ct" [nzSpan]="3">
+    <i class="zn-sidebar-trigger" nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'" theme="outline" (click)="handleChangeCollapsed()"></i>
+  </nz-col>
+
+  <nz-col class="zn-header__rt">
+    <ul class="zn-topnav">
+      <li class="zn-topnav-item" *ngIf="!token">
+        <a routerLink="/passport/login">{{ 'Nav.Login' | translate }}</a>
+      </li>
+      <li class="zn-topnav-item" *ngIf="!token">
+        <a routerLink="/passport/register">{{ 'Nav.Register' | translate }}</a>
+      </li>
+      <li class="zn-topnav-item">
+        <a (click)="handleChangeLang()">{{ 'Header.switch language' | translate }}</a>
+      </li>
+      <li class="zn-topnav-item" *ngIf="token">
+        <div class="zn-user">
+          <span class="zn-user-name">{{ user.nickname }}</span>
+          <nz-avatar class="zn-user-avatar" nzIcon="anticon anticon-user" [nzSrc]="user.avatar"></nz-avatar>
+        </div>
+      </li>
+    </ul>
+  </nz-col>
+</nz-header>

@@ -1,0 +1,13 @@
+<nz-layout class="zn-layout">
+  <nz-content>
+    <div class="passport-container zn-abs-center" nz-row>
+      <div class="passport-banner" nz-col nzXs="0" nzMd="12">
+        <div class="passport-mark"></div>
+        <h3 class="passport-label">{{ 'Passport.welcome' | translate }} <a routerLink="/dashboard">{{ appName }}</a></h3>
+      </div>
+      <div class="passport-content" nz-col nzXs="24" nzMd="12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>

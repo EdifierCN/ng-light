@@ -1,0 +1,13 @@
+<nz-sider class="zn-sidebar" nzCollapsible [nzCollapsed]="isCollapsed"  [nzTrigger]="null">
+  <ul class="zn-sidebar__bd zn-sidebar-menu" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <li nz-submenu *ngFor="let p of menu" [nzOpen]="p.opened">
+
+      <span title><i nz-icon [type]="p.icon" theme="outline"></i> <span>{{ p.titleI18n && p.titleI18n[lang] || p.title }}</span></span>
+      <ul>
+        <li nz-menu-item *ngFor="let c of p.children" [nzSelected]="c.selected">
+          <a [routerLink]="c.link" (click)="handleMenuClick($event)">{{ c.titleI18n && c.titleI18n[lang] || c.title}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nz-sider>

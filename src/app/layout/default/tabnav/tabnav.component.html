@@ -1,0 +1,10 @@
+<nz-tabset class="zn-tabnav" [(nzSelectedIndex)]="selectedIndex">
+  <nz-tab *ngFor="let tab of tabs; let i = index" [nzTitle]="titleTemplate" (nzClick)="handleTabClick(i)">
+    <ng-template #titleTemplate>
+      <div class="zn-tabnav-item">
+        <span>{{ tab?.titleI18n[lang] || tab?.title}}</span>
+        <i *ngIf="tabs.length > 1" class="anticon anticon-close" (click)="handleTabClose($event, i)"></i>
+      </div>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>

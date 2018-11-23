@@ -1,0 +1,19 @@
+<nz-layout class="zn-layout">
+  <div class="zn-routing-progressbar" *ngIf="isFetching"></div>
+  <app-header class="zn-layout-header"></app-header>
+  <app-tabnav class="zn-layout-tabnav" #tabnav></app-tabnav>
+  <app-sidebar class="zn-layout-sidebar"></app-sidebar>
+  <div class="zn-layout-backdrop" [@fadeInAnimation]="isCollapsed ? 'hidden' : 'shown'" (click)="handleCloseSideBar()"></div>
+
+  <nz-content class="zn-layout-content">
+    <div class="zn-layout-content__inner">
+      <!-- 刷新后，初次无显示 -->
+      <nz-breadcrumb [nzAutoGenerate]="true" class="zn-breadcrumb"></nz-breadcrumb>
+      <div [@routeAnimations]="prepareRoute(outlet)" >
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </nz-content>
+
+</nz-layout>

@@ -1,0 +1,43 @@
+<section>
+  <nz-divider nzText="Demo_1" nzOrientation="left"></nz-divider>
+  <div>
+    <p i18n>Hello i18n!</p>
+    <p i18n="An introduction header for this sample">Hello i18n!</p>
+    <p i18n="site header|An introduction header for this sample">Hello i18n!</p>
+    <p i18n="@@introductionHeader">Hello i18n!</p>
+    <p i18n="An introduction header for this sample@@introductionHeader">Hello i18n!</p>
+    <p i18n="site header|An introduction header for this sample@@introductionHeader">Hello i18n!</p>
+    <p><ng-container i18n>Hello i18n!</ng-container></p>
+    <!--`i18n-x="<meaning>|<description>@@<id>"`-->
+    <p title="Hello i18n!" i18n-title="site header|An introduction header for this sample@@introductionHeader">Hello i18n!</p>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="Demo_2" nzOrientation="left"></nz-divider>
+  <div>
+    <p i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{minutes}} minutes ago}}</p>
+    <button nz-button (click)="inc(-1)">-</button><span>({{minutes}})</span><button nz-button (click)="inc(1)">+</button>
+
+    <br><br>
+
+    <p i18n>The author is {gender, select, male {male} female {female} other {other}}</p>
+    <button nz-button (click)="male()">&#9794;</button> <button nz-button (click)="female()">&#9792;</button> <button nz-button (click)="other()">&#9895;</button>
+
+    <br><br>
+
+    <p i18n>Updated: {minutes, plural,
+      =0 {just now}
+      =1 {one minute ago}
+      other {{{minutes}} minutes ago by {gender, select, male {male} female {female} other {other}}}}
+    </p>
+  </div>
+</section>
+
+<section>
+  <nz-divider nzText="注意：" nzOrientation="left"></nz-divider>
+  <ul>
+    <li>1. 切换语言后刷新页面；</li>
+    <li>2. ng-xi18n 在抽取 HTML 标签里面的内容时不会掐掉前后的空白字符，这样直接会导致键不一致，因为键是取的文本的hash id。可见内容是相同的，但是被识别成两个条目。</li>
+  </ul>
+</section>

@@ -1,0 +1,8 @@
+<section>
+  <nz-divider nzText="Demo_1" nzOrientation="left"></nz-divider>
+  <ul [sortablejs]="items">
+    <li *ngFor="let v of items; let k = index" class="sortable"><em>{{ k+1 }}</em>这是个悲伤的故事-{{ v }}</li>
+  </ul>
+  <nz-divider nzText="链接" nzOrientation="left"></nz-divider>
+  <p>github：<a href="https://github.com/SortableJS/angular-sortablejs" target="_blank">https://github.com/SortableJS/angular-sortablejs</a></p>
+</section>
